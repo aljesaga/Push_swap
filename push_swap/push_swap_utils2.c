@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:09:51 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/22 18:09:41 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/11/24 16:59:34 by aviscogl         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ long	ft_atoi_push(const char *a)
 	return (n * sig);
 }
 
-t_list	*new_stack(int num)
+
+/* no necesarias */
+/*t_list	*new_stack(int num)
 {
 	t_list	*stack;
 	t_head	*list;
@@ -82,7 +84,7 @@ t_list	*new_stack(int num)
 	list = (t_head *)malloc(sizeof(t_head));
 	if (!stack || !list)
 		return (0);
-	stack->num = num;
+	stack->content = num;
 	stack->next = NULL;
 	list->points = 1;
 	list->one = stack;
@@ -108,4 +110,4 @@ void	add_nbr(t_list *stack, long nbr)
 	aux->next = newnodo;
 	newnodo->next = NULL;
 	stack->points++;
-}
+}*/

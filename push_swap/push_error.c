@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:40:55 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/22 15:41:21 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/11/24 17:11:27 by aviscogl         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ int	error(long atoi)
 	return (1);
 }
 
-int	same_num(t_stack *stk_a)
+int	same_num(t_list *stk_a)
 {
 	int	aux;
 
 	while (stk_a)
 	{
-		aux = stk_a->num;
+		aux = stk_a->content;
 		while (stk_a->next)
 		{
-			if (aux == stk_a->next->num)
+			if (aux == stk_a->next->content)
 			{
 				write(1, "Error\n", 1);
 				return (0);
@@ -44,14 +44,14 @@ int	same_num(t_stack *stk_a)
 	return (42);
 }
 
-void	clean_stack(t_stack **stack)
+void	clean_stack(t_list **stack)
 {
-	t_stack	*aux;
+	t_list	*aux;
 
 	while (*stack)
 	{
 		aux = (*stack)->next;
-		(*stack)->num = 0;
+		(*stack)->content = 0;
 		free(*stack);
 		(*stack) = aux;
 	}

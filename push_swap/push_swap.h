@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 16:35:34 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/22 18:09:57 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/11/24 17:15:20 by aviscogl         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	rr(t_list *stk_a, t_list *stk_b, int check);
 void	rr_a_b(t_list *stk);
 void	rrr(t_list *stk_a, t_list *stk_b, int check);
 long	ft_atoi_push(const char *a);
-t_list	*new_stack(int num);
-void	add_nbr(t_list *stack_a, long nbr);
+//t_list	*new_stack(int num);
+//void	add_nbr(t_list *stack_a, long nbr);
 
 /* push_swap_utils3 */
 int		*chr_min(t_list *stk_a, int n);

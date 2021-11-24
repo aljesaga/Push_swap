@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:01:34 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/22 18:06:38 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/11/24 16:50:07 by aviscogl         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	s_a_b(t_list *stk)
 {
-	int	aux;
+	void	*change;
 
-	aux = stk->next->num;
-	stk->next->num = stk->num;
-	stk->num = aux;
+	change = stk->next->content;
+	stk->next->content = stk->content;
+	stk->content = change;
 }
 
 void	swap(t_list *stk_a, t_list *stk_b, int check)

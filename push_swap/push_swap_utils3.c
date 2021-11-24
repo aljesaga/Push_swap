@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:09:32 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/22 18:08:31 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/11/24 17:01:02 by aviscogl         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	*chr_min(t_list *stk_a, int n)
 	}
 	while (count > 0)
 	{
-		if (stk_a->num < chr[count - 1] && chr[count - 1] != chr[count])
+		if (stk_a->content < chr[count - 1] && chr[count - 1] != chr[count])
 		{
-			chr[count - 1] = stk_a->num;
+			chr[count - 1] = stk_a->content;
 			count--;
 		}
 		else
@@ -41,7 +41,7 @@ void	ft_solu(t_list *stack_a, t_list *stack_b)
 {
 	int	points;
 
-	points = ftlstsize(stack_a);
+	points = ft_lstsize(stack_a);
 	if (points == 2)
 		ft_result_2(stack_a);
 	else if (points == 3)

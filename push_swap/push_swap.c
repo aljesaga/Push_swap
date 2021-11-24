@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 16:02:20 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/22 18:03:57 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/11/24 17:08:05 by aviscogl         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_to_list(char *arv, t_head *stack_a, int arn)
+void	add_to_list(char *arv, t_list *stack_a, int arn)
 {
 	char		**aux;
 	long		nbr;
+	t_list		*newpoint;
 	int			i;
 
 	i = -1;
@@ -25,22 +26,23 @@ void	add_to_list(char *arv, t_head *stack_a, int arn)
 		nbr = ft_atoi_push(aux[i]);
 		if (error(nbr) == 0)
 			return ;
-		if (arn == 1)
-			stack_a = new_stack(nbr);
+		if (arn == 1 && i == 0)
+			stack_a = ft_lstnew(nbr);
 		else
-			add_nbr(stack_a, nbr);
+			newpoint = ft_lstnew(nbr);
+			ft_add_back(stack_a, newpoint);
 	}
 	free(aux);
 }
 
-void	print_list(t_head *print)
+void	print_list(t_list *print)
 {
-	t_stack	*stack;
+	t_list	*stack;
 
-	stack = print->one;
+	stack = print;
 	while (stack)
 	{
-		printf("%d\n", stack->num);
+		printf("%p\n", stack->content);
 		stack = stack->next;
 	}
 }
@@ -48,8 +50,8 @@ void	print_list(t_head *print)
 int	main(int arc, char **arv)
 {
 	int		i;
-	t_head	stack_a;
-	t_head	stack_b;
+	t_list	stack_a;
+	t_list	stack_b;
 
 	if (arc < 2)
 		return (0);
@@ -63,7 +65,7 @@ int	main(int arc, char **arv)
 	}
 	print_list(&stack_a);
 	stack_b = *new_stack(0);
-	same_num(stack_a.one);
-	ft_solu(&stack_a, stack_a.one, stack_b.one);
+	same_num(&stack_a);
+	ft_solu( &stack_a, &stack_b);
 	return (0);
 }
