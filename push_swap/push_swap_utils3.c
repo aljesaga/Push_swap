@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:09:32 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/24 17:01:02 by aviscogl         ###   ########lyon.fr   */
+/*   Updated: 2021/11/25 17:26:32 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ void	ft_solu(t_list *stack_a, t_list *stack_b)
 
 	points = ft_lstsize(stack_a);
 	if (points == 2)
-		ft_result_2(stack_a);
+		ft_result_2(&stack_a);
 	else if (points == 3)
-		ft_result_3(stack_a);
+		ft_result_3(&stack_a);
 	else if (points == 4)
-		ft_result_4_5(stack_a, stack_b, 1);
+		ft_result_4_5(&stack_a, &stack_b, 1);
 	else if (points == 5)
-		ft_result_4_5(stack_a, stack_b, 2);
+		ft_result_4_5(&stack_a, &stack_b, 2);
+	return ;
 }

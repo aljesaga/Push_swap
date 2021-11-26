@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 18:35:04 by alsanche          #+#    #+#              #
-#    Updated: 2021/11/24 16:30:26 by aviscogl         ###   ########lyon.fr    #
+#    Updated: 2021/11/25 15:46:37 by alsanche         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,11 @@ clean:
 	@rm -f $(OBJS)
 
 cleanlibft:
-	@Make clean -sC libft
+	@Make fclean -sC libft
 	
 fclean: clean cleanlibft
 	@rm -f $(NAME)
-	@rm	-f libft/libft.a
+
 
 re: fclean all
 

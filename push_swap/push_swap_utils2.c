@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:09:51 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/24 16:59:34 by aviscogl         ###   ########lyon.fr   */
+/*   Updated: 2021/11/25 17:17:23 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr_a_b(t_list *stk)
+void	rr_a_b(t_list **stk)
 {
 	t_list	*aux;
 	t_list	*sig;
 
-	sig = stk;
+	sig = *stk;
 	while (sig->next->next)
 		sig = sig->next;
 	aux = sig->next->next;
 	sig->next = NULL;
-	*aux->next = *stk;
-	stk = aux;
+	aux->next = *stk;
+	stk = &aux;
 }
 
-void	rrr(t_list *stk_a, t_list *stk_b, int check)
+void	rrr(t_list **stk_a, t_list **stk_b, int check)
 {
 	if (check == 0)
 	{
@@ -72,42 +72,3 @@ long	ft_atoi_push(const char *a)
 		return (-2147483649);
 	return (n * sig);
 }
-
-
-/* no necesarias */
-/*t_list	*new_stack(int num)
-{
-	t_list	*stack;
-	t_head	*list;
-
-	stack = (t_list *)malloc(sizeof(t_list));
-	list = (t_head *)malloc(sizeof(t_head));
-	if (!stack || !list)
-		return (0);
-	stack->content = num;
-	stack->next = NULL;
-	list->points = 1;
-	list->one = stack;
-	return (list);
-}
-
-void	add_nbr(t_list *stack, long nbr)
-{
-	t_list	*aux;
-	t_list	*newnodo;
-
-	aux = stack->one;
-	newnodo = (t_list *)malloc(sizeof(t_list));
-	if (!newnodo)
-		return ;
-	newnodo->num = nbr;
-	while (aux)
-	{
-		if (aux->next == NULL)
-			break ;
-		aux = aux->next;
-	}
-	aux->next = newnodo;
-	newnodo->next = NULL;
-	stack->points++;
-}*/

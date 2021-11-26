@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aviscogl <aviscogl@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:01:34 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/24 16:50:07 by aviscogl         ###   ########lyon.fr   */
+/*   Updated: 2021/11/26 19:21:28 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	s_a_b(t_list *stk)
+void	s_a_b(t_list **stk)
 {
-	void	*change;
+	int	aux;
 
-	change = stk->next->content;
-	stk->next->content = stk->content;
-	stk->content = change;
+	aux = (*stk)->next->content;
+	(*stk)->next->content = (*stk)->content;
+	(*stk)->content = aux;
 }
 
-void	swap(t_list *stk_a, t_list *stk_b, int check)
+void	swap(t_list **stk_a, t_list **stk_b, int check)
 {
 	if (check == 0)
 	{
@@ -39,43 +39,47 @@ void	swap(t_list *stk_a, t_list *stk_b, int check)
 		s_a_b(stk_b);
 		write(1, "ss\n", 3);
 	}
+	return ;
 }
 
-void	push(t_list *stk_a, t_list *stk_b, int check)
+void	push(t_list **stk_a, t_list **stk_b, int check)
 {
 	t_list	*aux;
+	t_list	*temp;
+	t_list	*help;
 
+	aux = *stk_a;
+	temp = *stk_b;
 	if (check == 0)
 	{
-		stk_b->next = stk_a->next;
-		stk_b->next->next = NULL;
-		stk_a = stk_a->next;
+		temp = aux;
+		temp->next = NULL;
+		aux = aux->next;
 		write (1, "pa\n", 3);
 	}
 	else
 	{
-		aux = stk_a;
-		stk_a = stk_b;
-		stk_a->next = aux;
-		stk_b = stk_b->next;
+		help = aux;
+		aux = temp;
+		aux->next = help;
+		temp = temp->next;
 		write (1, "pb\n", 3);
 	}
 }
 
-void	r_a_b(t_list *stk)
+void	r_a_b(t_list **stk)
 {
 	t_list	*aux;
+	t_list	*temp;
 
-	aux = stk;
-	while (stk->next)
-	{
-		*stk = *stk->next;
-		stk->next = stk->next;
-	}
-	*stk->next = *aux;
+	temp = *stk;
+	aux = *stk;
+	ft_lstadd_back(stk, temp);
+	aux = temp->next;
+	temp->next = NULL;
 }
 
-void	rr(t_list *stk_a, t_list *stk_b, int check)
+void	rr(t_list **stk_a, t_list **stk_b, int check)
 {
 	if (check == 0)
 	{
@@ -87,7 +91,7 @@ void	rr(t_list *stk_a, t_list *stk_b, int check)
 		r_a_b(stk_b);
 		write(1, "rb\n", 3);
 	}
-	else if (check == 3)
+	else if (check == 2)
 	{
 		r_a_b(stk_a);
 		r_a_b(stk_b);
