@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 16:35:34 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/29 16:40:02 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 13:30:01 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,17 @@ void	rr(t_list **stk_a, t_list **stk_b, int check);
 void	rr_a_b(t_list **stk);
 void	rrr(t_list **stk_a, t_list **stk_b, int check);
 long	ft_atoi_push(const char *a);
-
-/* push_swap_utils3 */
 int		*chr_min(t_list **stk_a);
 void	ft_solu(t_list **stack_a, t_list **stack_b);
 
+/* push_swap_utils3 */
+int		serch_place(t_list *aux, t_list **stk);
+void	ft_map_num(t_list **stk, int point);
+
 /* push_swap_error */
+void	print_err(int active);
 int		error(long atoi);
-int		same_num(t_list *stk_a);
+int		same_num(t_list **stk_a);
 int		i_got_it(t_list **stack);
 void	clean_stack(t_list **stack);
 
@@ -53,8 +56,15 @@ void	ft_result_3(t_list **stk_a);
 void	ft_result_4(t_list **stk_a, t_list **stk_b, int n);
 void	ft_result_5(t_list **stk_a, t_list **stk_b, int n);
 
+/* push_swap_solution_100_500 */
+int		*chr_max(t_list **stk);
+void	send_to_b(t_list **stk_a, t_list **stk_b, int check, int *i);
+void	send_to_a(t_list **stk_a, t_list **stk_b, int check, int *i);
+int		*nbr_2_push(t_list **stk, int min, int max);
+void	ft_result_100(t_list **stk_a, t_list **stk_b, int points);
+
 /* quitar antes de entregar */
 
-void    print_list(t_list *print);
+void	print_list(t_list *print);
 
 #endif

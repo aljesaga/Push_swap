@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:09:51 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/29 12:16:35 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 13:42:00 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,54 @@ long	ft_atoi_push(const char *a)
 	if (*a != '\0')
 		return (-2147483649);
 	return (n * sig);
+}
+
+int	*chr_min(t_list **stk_a)
+{
+	int		*chr;
+	t_list	*aux;
+
+	chr = malloc(sizeof(int) * 2);
+	chr[0] = INT_MAX;
+	chr[1] = chr[0];
+	aux = *stk_a;
+	while (aux->next)
+	{
+		if (aux->content < chr[0])
+			chr[0] = aux->content;
+		else
+			aux = aux->next;
+	}
+	aux = *stk_a;
+	while (aux)
+	{
+		if (aux->content < chr[1] && aux->content != chr[0])
+			chr[1] = aux->content;
+		else
+			aux = aux->next;
+	}
+	return (chr);
+}
+
+void	ft_solu(t_list **stack_a, t_list **stack_b)
+{
+	int	points;
+
+	if (i_got_it(stack_a) == 1)
+		exit (-1);
+	points = ft_lstsize(*stack_a);
+	ft_map_num(stack_a, points);
+	//printf("-------------------");
+//	print_list(*stack_a);
+	if (points == 2)
+		ft_result_2(stack_a);
+	else if (points == 3)
+		ft_result_3(stack_a);
+	else if (points == 4)
+		ft_result_4(stack_a, stack_b, points);
+	else if (points == 5)
+		ft_result_5(stack_a, stack_b, 0);
+	else if (points >= 6 && points <= 100)
+		ft_result_100(stack_a, stack_b, points);
+	return ;
 }

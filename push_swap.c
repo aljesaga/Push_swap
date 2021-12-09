@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 16:02:20 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/29 16:29:24 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 13:34:05 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ void	add_to_list(char *arv, t_list **stack_a)
 	aux = ft_split(arv, ' ');
 	while (aux[++i])
 	{
+		if (aux[0] == '\0')
+			exit (-1);
 		nbr = ft_atoi_push(aux[i]);
 		if (error(nbr) == 0)
-			return ;
+			exit (-1);
 		newpoint = ft_lstnew(nbr);
 		ft_lstadd_back(stack_a, newpoint);
 	}
@@ -48,9 +50,9 @@ int	main(int arc, char **arv)
 {
 	int		i;
 	t_list	*stack_a;
-	t_list	*stack_b = NULL;
+	t_list	*stack_b;
 
-	if (arc < 2)
+	if (arc < 2 )
 		return (0);
 	i = 1;
 	while (i < arc)
@@ -58,10 +60,10 @@ int	main(int arc, char **arv)
 		add_to_list(arv[i], &stack_a);
 		i++;
 	}
-	print_list(stack_a);
-	if (same_num(stack_a) == 0)
-		return (0);
+	//print_list(stack_a);
+	same_num(&stack_a);
+	stack_b = NULL;
 	ft_solu(&stack_a, &stack_b);
-	print_list(stack_a);
+//	print_list(stack_a);
 	return (0);
 }

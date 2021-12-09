@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:59:16 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/29 16:17:13 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/09 11:15:57 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,20 @@ void	ft_result_4(t_list **stk_a, t_list **stk_b, int n)
 	while (n > 0)
 	{
 		aux = *stk_a;
+		if (i_got_it(stk_a) == 1)
+			return ;
 		if (aux->content == chr[0])
 		{
 			push(stk_a, stk_b, 0);
 			break ;
 		}
 		else
-			rrr(stk_a, stk_b, 0);
+			rr(stk_a, stk_b, 0);
 		n--;
 	}
 	ft_result_3(stk_a);
 	push(stk_a, stk_b, 1);
+	free(chr);
 }
 
 void	ft_result_5(t_list **stk_a, t_list **stk_b, int n)
@@ -76,16 +79,18 @@ void	ft_result_5(t_list **stk_a, t_list **stk_b, int n)
 	int		*chr;
 
 	chr = chr_min(stk_a);
-	while (n != 2)
+	while (n < 2)
 	{
 		aux = *stk_a;
+		if (i_got_it(stk_a) == 1 && (*stk_b) == NULL)
+			return ;
 		if (aux->content == chr[0] || aux->content == chr[1])
 		{
 			push(stk_a, stk_b, 0);
 			n++;
 		}
 		else
-			rrr(stk_a, stk_b, 0);
+			rr(stk_a, stk_b, 0);
 	}
 	ft_result_3(stk_a);
 	aux = *stk_b;
@@ -93,4 +98,5 @@ void	ft_result_5(t_list **stk_a, t_list **stk_b, int n)
 		swap(stk_a, stk_b, 1);
 	push(stk_a, stk_b, 1);
 	push(stk_a, stk_b, 1);
+	free(chr);
 }

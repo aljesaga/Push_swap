@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 16:01:34 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/29 15:57:53 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 16:46:01 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,13 @@ void	push(t_list **stk_a, t_list **stk_b, int check)
 	{
 		(*stk_a) = aux->next;
 		ft_lstadd_front(stk_b, aux);
-		write (1, "pa\n", 3);
+		write (1, "pb\n", 3);
 	}
 	else
 	{
-		if ((*stk_b)->next)
-			(*stk_b) = (*stk_b)->next;
-		(*stk_b)->next = NULL;
+		(*stk_b) = temp->next;
 		ft_lstadd_front(stk_a, temp);
-		write (1, "pb\n", 3);
+		write (1, "pa\n", 3);
 	}
 }
 
