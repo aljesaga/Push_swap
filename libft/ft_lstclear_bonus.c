@@ -6,13 +6,13 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 22:00:41 by alsanche          #+#    #+#             */
-/*   Updated: 2021/11/25 15:52:43 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 15:42:23 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*aux;
 

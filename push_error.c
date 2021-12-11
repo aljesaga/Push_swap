@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:40:55 by alsanche          #+#    #+#             */
-/*   Updated: 2021/12/09 12:20:01 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 16:49:09 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,15 @@ int	i_got_it(t_list **stack)
 void	clean_stack(t_list **stack)
 {
 	t_list	*aux;
+	t_list	*temp;
 
-	while (*stack)
+	temp = (*stack);
+	while (temp)
 	{
-		aux = (*stack)->next;
-		(*stack)->content = 0;
-		free(*stack);
-		(*stack) = aux;
+		aux = temp->next;
+		free(temp);
+		temp = aux;
 	}
-	*stack = NULL;
+	stack = NULL;
+	free(stack);
 }

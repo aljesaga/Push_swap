@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:09:51 by alsanche          #+#    #+#             */
-/*   Updated: 2021/12/09 13:42:00 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 20:11:32 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,6 @@ void	ft_solu(t_list **stack_a, t_list **stack_b)
 		exit (-1);
 	points = ft_lstsize(*stack_a);
 	ft_map_num(stack_a, points);
-	//printf("-------------------");
-//	print_list(*stack_a);
 	if (points == 2)
 		ft_result_2(stack_a);
 	else if (points == 3)
@@ -120,7 +118,7 @@ void	ft_solu(t_list **stack_a, t_list **stack_b)
 		ft_result_4(stack_a, stack_b, points);
 	else if (points == 5)
 		ft_result_5(stack_a, stack_b, 0);
-	else if (points >= 6 && points <= 100)
-		ft_result_100(stack_a, stack_b, points);
+	else if (points >= 6)
+		ft_result_100_500(stack_a, stack_b, points);
 	return ;
 }

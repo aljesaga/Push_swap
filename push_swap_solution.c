@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:59:16 by alsanche          #+#    #+#             */
-/*   Updated: 2021/12/09 11:15:57 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 20:24:55 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,32 @@ void	ft_result_5(t_list **stk_a, t_list **stk_b, int n)
 	push(stk_a, stk_b, 1);
 	push(stk_a, stk_b, 1);
 	free(chr);
+}
+
+void	ft_result_100_500(t_list **stk_a, t_list **stk_b, int points)
+{
+	int	*i;
+	int	min[3];
+
+	if (points > 100)
+		min[2] = points / 10;
+	else
+		min[2] = points / 5;
+	min[1] = min[2] - 1;
+	min[0] = 0;
+	while (min[1] <= points)
+	{
+		send_a(stk_a, stk_b, min);
+		min[0] = min[1] + 1;
+		min[1] += min[2];
+		if (ft_lstsize(*stk_a) == 3)
+			break ;
+	}
+	ft_result_3(stk_a);
+	while (*stk_b)
+	{
+		i = chr_max(stk_b);
+		send_to_rr(stk_a, stk_b, 1, i[1]);
+		free(i);
+	}
 }

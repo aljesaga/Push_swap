@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 16:35:34 by alsanche          #+#    #+#             */
-/*   Updated: 2021/12/09 13:30:01 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 20:13:46 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,14 @@ void	ft_result_2(t_list **stk_a);
 void	ft_result_3(t_list **stk_a);
 void	ft_result_4(t_list **stk_a, t_list **stk_b, int n);
 void	ft_result_5(t_list **stk_a, t_list **stk_b, int n);
+void	ft_result_100_500(t_list **stk_a, t_list **stk_b, int points);
 
 /* push_swap_solution_100_500 */
 int		*chr_max(t_list **stk);
-void	send_to_b(t_list **stk_a, t_list **stk_b, int check, int *i);
-void	send_to_a(t_list **stk_a, t_list **stk_b, int check, int *i);
+void	send_to_rr(t_list **stk_a, t_list **stk_b, int check, int i);
+void	send_to_rrr(t_list **stk_a, t_list **stk_b, int check, int i);
 int		*nbr_2_push(t_list **stk, int min, int max);
-void	ft_result_100(t_list **stk_a, t_list **stk_b, int points);
+void	send_a(t_list **stk_a, t_list **stk_b, int *min);
 
 /* quitar antes de entregar */
 

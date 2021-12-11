@@ -6,11 +6,16 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 16:02:20 by alsanche          #+#    #+#             */
-/*   Updated: 2021/12/09 13:34:05 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/10 20:26:56 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	leaks(void)
+{
+	system("leaks -q push_swap");
+}
 
 void	add_to_list(char *arv, t_list **stack_a)
 {
@@ -30,6 +35,7 @@ void	add_to_list(char *arv, t_list **stack_a)
 			exit (-1);
 		newpoint = ft_lstnew(nbr);
 		ft_lstadd_back(stack_a, newpoint);
+		free(aux[i]);
 	}
 	free(aux);
 }
@@ -64,6 +70,8 @@ int	main(int arc, char **arv)
 	same_num(&stack_a);
 	stack_b = NULL;
 	ft_solu(&stack_a, &stack_b);
-//	print_list(stack_a);
+	//print_list(stack_a);
+	clean_stack(&stack_a);
+	//atexit(leaks);
 	return (0);
 }
