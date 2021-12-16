@@ -6,7 +6,7 @@
 /*   By: alsanche <alsanche@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 16:35:34 by alsanche          #+#    #+#             */
-/*   Updated: 2021/12/11 16:28:42 by alsanche         ###   ########lyon.fr   */
+/*   Updated: 2021/12/16 14:46:17 by alsanche         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	ft_result_5(t_list **stk_a, t_list **stk_b, int n);
 void	ft_result_100_500(t_list **stk_a, t_list **stk_b, int points);
 
 /* push_swap_solution_100_500 */
-void	send_to_rr(t_list **stk_a, t_list **stk_b, int check, int i);
-void	send_to_rrr(t_list **stk_a, t_list **stk_b, int check, int i);
-void	swap_selec(t_list **stk_a, t_list **stk_b, int i, int con);
+void	send_to_rr(t_list **stk_a, t_list **stk_b, int check, int *i);
+void	send_to_rrr(t_list **stk_a, t_list **stk_b, int check, int *i);
+void	swap_selec(t_list **stk_a, t_list **stk_b, int *i);
 void	send_a(t_list **stk_a, t_list **stk_b, int *min);
 void	send_b(t_list **stk_a, t_list **stk_b);
 
@@ -68,5 +68,9 @@ void	send_b(t_list **stk_a, t_list **stk_b);
 int		*chr_max(t_list **stk);
 int		*find(t_list **stk, int *min, int check);
 int		*selec_nbr(t_list **stk_a, int *min);
+
+/*borrar*/
+
+void    print_list(t_list *print);
 
 #endif
